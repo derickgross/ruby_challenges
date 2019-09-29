@@ -1,16 +1,15 @@
 class Sieve
-  attr_reader :primes, :range, :number, :limit
+  attr_reader :primes, :number, :limit
   attr_accessor :candidates
 
   def initialize(number)
     @number = number
-    @range = (2..number).to_a
     @limit = Math.sqrt(number)
-    @candidates = get_candidates(range)
-    @primes = calculate_primes(range)
+    @candidates = get_candidates
+    @primes = calculate_primes
   end
 
-  def calculate_primes(range)
+  def calculate_primes
     i = 2
     while i < limit
       if candidates[i.to_s] == true
@@ -26,9 +25,9 @@ class Sieve
     candidates.select {|_, value| value }.keys.map { |prime| prime.to_i }
   end
 
-  def get_candidates(range)
+  def get_candidates
     c = {}
-    range.each do |x|
+    (2..number).to_a.each do |x|
       c[x.to_s] = true
     end
 
