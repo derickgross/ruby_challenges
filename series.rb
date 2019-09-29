@@ -6,7 +6,7 @@ class Series
   end
 
   def slices(slice_length)
-    raise ArgumentError if slice_length > number_string.length
+    raise ArgumentError, "String must be longer than substring" if slice_length > number_string.length
     i = 0
     output = []
 
