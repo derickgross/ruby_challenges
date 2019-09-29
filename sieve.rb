@@ -35,33 +35,3 @@ class Sieve
     c
   end
 end
-
-# JS solution for Project Euler
-
-# function calculatePrime(value, callback) {
-#     var stringPrimes;
-#     var intPrimes;
-#     var nonPrimes = [];
-#     var candidates = {};
-#     var limit = Math.sqrt(value);
-
-#     for(var i = 2; i < value; i++) {
-#         candidates[i] = true;
-#     }
-
-#     for(var i = 2; i < limit; i++) {
-#         if(candidates[i] === true) {
-#             for(var j = i * i; j < value; j += i) {
-#                 candidates[j] = false;
-#             }
-#         }
-#     }
-#     stringPrimes = Object.keys(candidates).filter(key => candidates[key]);
-#     //intPrimes = stringPrimes.map(prime => parseInt(prime));
-
-#     if (!callback) {
-#         return stringPrimes;
-#     } else {
-#         callback(stringPrimes);
-#     }
-# }
