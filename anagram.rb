@@ -7,12 +7,8 @@ class Anagram
   end
 
   def match(words)
-    matches = []
-
-    words.each do |word|
-      matches.push(word) if (word.downcase.split("").sort == sorted_word_parts && word.downcase != original_word)
+    words.select do |word|
+      word if (word.downcase.split("").sort == sorted_word_parts && word.downcase != original_word)
     end
-
-    matches
   end
 end
