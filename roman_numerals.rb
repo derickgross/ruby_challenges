@@ -3,10 +3,9 @@ class Fixnum
     roman_numeral = ""
 
     (self / 1000).times { roman_numeral += "M" }
-    (self % 1000 / 500).times { roman_numeral += "D" }
-    (self % 1000 % 500 / 100).times { roman_numeral += "C"}
-    (self % 1000 % 500 % 100 / 10).times { roman_numeral += "X" }
-    (self % 1000 % 500 % 100 % 10).times { roman_numeral += "I" }
+    (self % 1000 / 100).times { roman_numeral += "C"}
+    (self % 1000 % 100 / 10).times { roman_numeral += "X" }
+    (self % 1000 % 100 % 10).times { roman_numeral += "I" }
 
     roman_numeral.sub!("CCCCC", "D")
     roman_numeral.sub!("DCCCC", "CM")
