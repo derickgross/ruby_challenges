@@ -10,13 +10,17 @@ class OddWords
   def reverse_odd_words(string)
     string_parts = string.scan(/\S+/)
 
+    if string_parts.last == "."
+      string_parts[-2] = string_parts[-2] + "."
+      string_parts.pop
+    end
+
     i = 0
     while i < string_parts.length
 
       if i % 2 == 1 && string_parts[i][-1] != "."
         string_parts[i] = dag_reverse(string_parts[i])
       elsif i % 2 == 1 && string_parts[i][-1] == "."
-        # string_parts[i] = string_parts[i][0..-2].reverse! + "."
         string_parts[i] = dag_reverse(string_parts[i][0..2]) + "."
       end
 
@@ -38,6 +42,3 @@ class OddWords
     output
   end
 end
-
-# processor = OddWords.new("whats the matter with kansas.")
-# puts processor.processed
