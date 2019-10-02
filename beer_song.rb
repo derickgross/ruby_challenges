@@ -1,6 +1,5 @@
 class BeerSong
   def verse(start)
-    trigger_0 = start == 0
     verses(start, start)
   end
 
