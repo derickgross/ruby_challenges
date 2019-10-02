@@ -1,10 +1,5 @@
 class BeerSong
-  def verse(start)
-    verses(start, start)
-  end
-
   def verses(start, song_end)
-    trigger_0 = song_end == 0
     current = start
     song = ""
 
@@ -16,13 +11,17 @@ class BeerSong
       current -= 1
     end
 
-    if current == 0 && trigger_0
+    if current == 0 && song_end == 0
       song += "\n" unless song.empty?
       song += "No more bottles of beer on the wall, no more bottles of beer.\n"
       song += "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
     end
 
     song
+  end
+
+  def verse(start)
+    verses(start, start)
   end
 
   def lyrics
